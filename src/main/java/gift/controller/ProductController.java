@@ -19,40 +19,32 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@RestController("/api/products")
 public class ProductController {
     private final ProductService productService;
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
 
-    @PostMapping("/api/products")
+    @PostMapping("/")
     public void createProduct(@RequestBody CreateProduct.Request request){ productService.createProduct(request);}
 
-    @GetMapping("/api/products")
+    @GetMapping("/")
     public Map<Long,ProductDTO> getAllProducts() {
         return  productService.getAllProducts();
     }
 
-    @GetMapping("/api/products/{id}")
-    public ProductDetailDTO getProductDetail(
-            @PathVariable Long id
-    ) {
-        return productService.getProductDetail(id);
-    }
+    @GetMapping("/{id}")
+    public ProductDetailDTO getProductDetail(@PathVariable Long id) { return productService.getProductDetail(id);}
 
-    @PutMapping("/api/products/{id}")
+    @PutMapping("/{id}")
     public ProductDetailDTO putProductDetail(
             @PathVariable Long id,
             @RequestBody EditProduct.Request request
-    ) {
-        return productService.editProductDetail(id,request);
-    }
+    ) { return productService.editProductDetail(id,request);}
 
-    @DeleteMapping("/api/products/{id}")
-    public ProductDetailDTO deleteProductDetail(
-            @PathVariable Long id
-    ) {
+    @DeleteMapping("/{id}")
+    public ProductDetailDTO deleteProductDetail( @PathVariable Long id ) {
         return productService.deleteProduct(id);
     }
 }

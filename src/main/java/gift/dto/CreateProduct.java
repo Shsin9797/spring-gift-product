@@ -1,9 +1,6 @@
 package gift.dto;
 
-
 public class CreateProduct {
-
-
 
     public static class Request{
 
