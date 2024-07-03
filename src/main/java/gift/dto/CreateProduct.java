@@ -1,8 +1,5 @@
 package gift.dto;
 
-//import com.sun.istack.NotNull;
-
-import gift.entity.Product;
 
 public class CreateProduct {
 

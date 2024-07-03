@@ -8,9 +8,7 @@ public class EditProduct {
 
         private  long id;
         private String name;
-
         private int price;
-
         private String imageUrl;
 
         public Request( long id , String name, int price,String imageUrl) {
